@@ -37,6 +37,13 @@ body {
   height: 100%;
 }
 
+.Salad {
+  height: 700px; 
+  width: 700px;
+  object-fit: cover; 
+  object-position: center; 
+}
+
 .product-img img {
   width: 100%;
   height: 100%;
@@ -145,25 +152,25 @@ button {
 {% endblock %}
 
 {% block conteudo %}
+{% for lanche in lanches: %}
 <div class="container">
 
   <!-- IMAGEM -->
-  <div class="product-img">
-    <img src="https://images.pexels.com/photos/12034622/pexels-photo-12034622.jpeg" alt="Burger">
+  <div class="product-img {{lanche.produto}}">
+    <img src="{{lanche.foto}}" alt="{{lanche.produto}}">
   </div>
 
   <!-- INFO -->
   <div class="product-info">
 
-    <h1>Dev Bacon Supreme</h1>
+    <h1>{{lanche.produto}}</h1>
 
     <p class="description">
-      Um hambúrguer artesanal com 180g de carne suculenta, queijo cheddar derretido,
-      bacon crocante e nosso molho secreto da casa.
+      {{lanche.descricao}}
     </p>
 
     <div>
-      <span class="price">R$ 29,90</span>
+      <span class="price">R$ {{lanche.preco}}0</span>
     </div>
 
     <div class="actions">
@@ -171,19 +178,11 @@ button {
       <button class="cart">Adicionar ao carrinho</button>
     </div>
 
-    <div class="details">
-      <h3>🍽️ Detalhes</h3>
-      <ul>
-        <li>Pão brioche artesanal</li>
-        <li>Carne 180g (blend especial)</li>
-        <li>Queijo cheddar</li>
-        <li>Bacon crocante</li>
-        <li>Molho secreto</li>
-      </ul>
-    </div>
 
   </div>
 
+
 </div>
+{% endfor %}
 
 {% endblock %}
