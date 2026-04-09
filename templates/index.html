@@ -20,10 +20,10 @@
 <!-- Escolha Rápida  -->
     <section class="categories">
       <div class="categories__container">
-        <h2 class="categories__title">Escolha Rápida</h2>
+        <h2 class="categories__title">Nossos Destaques</h2>
 
         <div class="categories__list">
-          {% for lanche in lanches: %}
+          {% for lanche in destaque: %}
           <div class="category-item">
             <img
               src="{{lanche.foto}}"
@@ -40,7 +40,7 @@
 <!-- Produtos do Menu -->
     <section class="products" id="menu">
       <div class="products__container">
-        <h2 class="products__title">Nossos Destaques</h2>
+        <h2 class="products__title">Cardápio</h2>
 
         <div class="products__grid">
           {% for lanche in lanches: %}
@@ -59,7 +59,7 @@
               </p>
               <div class="card__footer">
                 <span class="card__price">R$ {{lanche.preco}}0</span>
-                <button class="button button--small">Comprar</button>
+                <a href="/unit/{{lanche.codigo}}" class="button button--small">Comprar</a>
               </div>
             </div>
           </article>
