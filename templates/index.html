@@ -30,7 +30,7 @@
               alt="{{lanche.produto}}"
               class="category-item__img"
             />
-            <a href="#lanche-1" class="button button--small">EU QUERO</a>
+            <a href="#lanche-{{lanche.codigo}}" class="button button--small">EU QUERO</a>
           </div>
           {% endfor %}
         </div>
@@ -44,7 +44,7 @@
 
         <div class="products__grid">
           {% for lanche in lanches: %}
-          <article class="card" id="lanche-1">
+          <article class="card" id="lanche-{{lanche.codigo}}">
             <div class="card__image-wrapper">
               <img
                 src="{{lanche.foto}}"

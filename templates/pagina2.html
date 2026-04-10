@@ -44,6 +44,20 @@ body {
   object-position: center; 
 }
 
+.Java {
+  height: 700px; 
+  width: 700px;
+  object-fit: cover; 
+  object-position: center; 
+}
+
+.Script {
+  height: 600px; 
+  width: 700px;
+  object-fit: cover; 
+  object-position: center; 
+}
+
 .product-img img {
   width: 100%;
   height: 100%;
@@ -152,25 +166,25 @@ button {
 {% endblock %}
 
 {% block conteudo %}
-{% for lanche in lanches: %}
+
 <div class="container">
 
   <!-- IMAGEM -->
-  <div class="product-img {{lanche.produto}}">
-    <img src="{{lanche.foto}}" alt="{{lanche.produto}}">
+  <div class="product-img {{lanches.produto}}">
+    <img src="{{lanches.foto}}" alt="{{lanches.produto}}">
   </div>
 
   <!-- INFO -->
   <div class="product-info">
 
-    <h1>{{lanche.produto}}</h1>
+    <h1>{{lanches.produto}}</h1>
 
     <p class="description">
-      {{lanche.descricao}}
+      {{lanches.descricao}}
     </p>
 
     <div>
-      <span class="price">R$ {{lanche.preco}}0</span>
+      <span class="price">R$ {{lanches.preco}}0</span>
     </div>
 
     <div class="actions">
@@ -183,6 +197,5 @@ button {
 
 
 </div>
-{% endfor %}
 
 {% endblock %}

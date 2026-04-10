@@ -3,7 +3,8 @@ from database.conexao import conectar
 def recuperar_lanches():
     conexao,cursor = conectar()
     
-    cursor.execute("SELECT codigo,produto,descricao,preco,destaque,foto,disponibilidade FROM hamburguers;")
+    cursor.execute("""SELECT codigo,produto,descricao,preco,destaque,foto,disponibilidade FROM hamburguers
+                        WHERE disponibilidade = 1;""")
 
     lanches=cursor.fetchall()
 
@@ -14,7 +15,7 @@ def recuperar_lanches():
 def recuperar_lanches_destaque():
     conexao,cursor = conectar()
     cursor.execute("""SELECT codigo,produto,descricao,preco,destaque,foto,disponibilidade FROM hamburguers
-                        WHERE destaque = 1;""")  
+                        WHERE destaque = 1 and disponibilidade = 1;""")  
     
     lanches=cursor.fetchall()
 
@@ -28,7 +29,7 @@ def recuperar_lanches_unit(cod):
     cursor.execute("""SELECT codigo,produto,descricao,preco,destaque,foto,disponibilidade FROM hamburguers
                         WHERE codigo = %s;""",(cod, ))  
     
-    lanches=cursor.fetchall()
+    lanches=cursor.fetchone()
 
     conexao.close()
 
