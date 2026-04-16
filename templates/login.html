@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block css_adicional %}
+    <style>
+        .container{
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+        }
+        .footer{
+            width: 100vw;
+        }
+        .box { background-color: #eeeeee; border: 1px solid #a0a0a0; color: #000; width: 800px; }
+        .input, .select select { background-color: #e2e2e2; border-color: #a0a0a0; color: #000; }
+        .input:focus, .select select:focus { border-color: #485fc7; }
+        
+        /* Ajustes da Tabela */
+        .table { background-color: transparent; color: #000; }
+        .table thead th { color: #000; border-bottom-color: #2d2d2d; text-transform: uppercase; font-size: 0.75rem; }
+        .table td { border-bottom-color: #2d2d2d; vertical-align: middle; }
+        tr:hover { background-color: #242424 !important; }
+        
+        .title, .label { color: #000 !important; }
+        .subtitle { color: #000 !important; }
+        
+
+    </style>
+
+{% endblock %}
+
+
+{% block conteudo %}
+    <div class="container">
+        <div class="box">
+            <h2 class="title is-5 mb-5">
+                <i class="fa-solid fa-circle-plus has-text-success mr-2"></i> Entre na sua conta!
+            </h2>
+            <form method="post" action="/cadastro/post">
+                <div class="columns is-multiline">
+                    <div class="column is-4">
+                        <div class="field">
+                            <label class="label is-small">Login</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ex: user123" name="login_create">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="field">
+                            <label class="label is-small">Senha</label>
+                            <div class="control">
+                                <input class="input" type="password" placeholder="Ex: senha123" name="senha_create">
+                            </div>
+                        </div>
+                    </div>
+                <button type="submit" class="button is-link is-fullwidth mt-4">
+                    <strong><i class="fa-solid fa-save mr-2"></i> Entrar na conta </strong>
+                </button>
+                <a href="/cadastro"><span>Não tem uma conta?? Crie uma clicando aqui!</span></a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

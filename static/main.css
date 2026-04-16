@@ -1,5 +1,4 @@
 
-
 .header{
     display: flex;
     justify-content: center;
@@ -7,7 +6,15 @@
     background: var(--header_color);
     padding: 25px;
 }
-    
+
+.header__icon{
+    padding: 10px 20px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .header__container{
     width: 100%;
     display: flex;

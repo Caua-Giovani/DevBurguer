@@ -12,7 +12,7 @@ app.secret_key='chave-secreta-demais'
 
 @app.route("/")
 def pag_principal():
-    return render_template("layout.html")
+    return render_template("home.html")
 
 @app.route("/unit/<int:id>")
 def pag_unitario(id):
@@ -24,6 +24,14 @@ def pag_cardapio():
     lanches = recuperar_lanches()
     destaque = recuperar_lanches_destaque()
     return render_template("index.html",lanches=lanches,destaque=destaque)
+
+@app.route("/login")
+def pag_login():
+    return render_template("login.html")
+
+@app.route("/cadastro")
+def pag_cadastro():
+    return render_template("cadastro.html")
 
 
 

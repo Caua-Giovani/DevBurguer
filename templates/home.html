@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block css_adicional %}
+<style>
+    /* HERO */
+    .hero {
+        height: 80vh;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero__title {
+        color: white;
+        font-size: 50px;
+        font-family: 'Franklin Gothic Medium';
+    }
+
+    .hero__title span {
+        color: red;
+    }
+
+    .hero__subtitle {
+        color: #ddd;
+        margin: 15px 0 30px;
+        font-size: 23px;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 80px 250px;
+    }
+
+    .about__container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        font-size: 25px;
+    }
+
+    .about__text {
+        flex: 1;
+    }
+
+    .about__image img {
+        width: 400px;
+        border-radius: 15px;
+    }
+
+    /* FEATURES */
+    .features {
+        background: #EFFAF0;
+        padding: 80px 50px;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .features__grid {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .feature {
+        max-width: 250px;
+    }
+
+    /* CTA */
+    .cta {
+        padding: 80px;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="/static/reset.css" />
+<link rel="stylesheet" href="/static/variables.css" />
+<link rel="stylesheet" href="/static/main.css" />
+
+<!-- HERO / BOAS-VINDAS -->
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">
+      Bem-vindo ao <span>Code & Flavor</span>
+    </h1>
+
+    <p class="hero__subtitle">
+      Hambúrgueres artesanais feitos com paixão e tecnologia 🍔💻
+    </p>
+
+    <a href="/cardapio" class="button--primary">
+      Ver Cardápio
+    </a>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about">
+  <div class="about__container">
+    
+    <div class="about__text">
+      <h2>🔥 Quem somos</h2>
+      <p>
+        No Code & Flavor, cada hambúrguer é desenvolvido como um código bem escrito:
+        ingredientes selecionados, montagem perfeita e sabor inesquecível.
+      </p>
+      <p>
+        Aqui você encontra desde clássicos até criações exclusivas que vão explodir seu paladar.
+      </p>
+    </div>
+
+    <div class="about__image">
+      <img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg" alt="Hamburguer artesanal">
+    </div>
+
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="features">
+  <h2 class="features__title">Por que escolher a gente?</h2>
+
+  <div class="features__grid">
+    
+    <div class="feature">
+      <h3>🍔 Ingredientes Premium</h3>
+      <p>Selecionamos apenas os melhores ingredientes.</p>
+    </div>
+
+    <div class="feature">
+      <h3>⚡ Rápido e Fresco</h3>
+      <p>Preparado na hora e entregue com agilidade.</p>
+    </div>
+
+    <div class="feature">
+      <h3>💻 Tema Geek</h3>
+      <p>Uma experiência única para quem ama tecnologia.</p>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
