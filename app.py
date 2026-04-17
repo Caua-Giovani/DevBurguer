@@ -6,6 +6,10 @@ from model.lanches import recuperar_lanches
 from model.lanches import recuperar_lanches_unit
 from model.lanches import recuperar_lanches_destaque
 
+from model.usuario import adicionar_usuario
+from model.usuario import autenticar_usuario
+
+
 app = Flask(__name__)
 
 app.secret_key='chave-secreta-demais'
@@ -23,7 +27,10 @@ def pag_unitario(id):
 def pag_cardapio():
     lanches = recuperar_lanches()
     destaque = recuperar_lanches_destaque()
-    return render_template("index.html",lanches=lanches,destaque=destaque)
+    if 'usuario_logado' in session:
+        return render_template("index.html",lanches=lanches,destaque=destaque)
+    else:
+        return redirect("/login")
 
 @app.route("/login")
 def pag_login():
@@ -33,8 +40,39 @@ def pag_login():
 def pag_cadastro():
     return render_template("cadastro.html")
 
+@app.route("/cadastro/post",methods=["POST"])
+def pag_cadastro_post():
+    login = request.form.get("login_create")
+    senha = request.form.get("senha_create")
+    nome = request.form.get("name_create")
+    adicionar_usuario(login,senha,nome)
+
+    return redirect("/login")
 
 
+@app.route("/login/post",methods=["POST"])
+def pag_login_post():
+
+    login= request.form.get("login")
+    senha= request.form.get("senha")
+
+    if autenticar_usuario(login,senha):
+        session['usuario_logado'] = login
+        return redirect("/cardapio")
+    else:
+        flash("Usuário ou senha incorretos!")
+        return redirect("/login")
+    
+
+@app.route("/contato")
+def pag_contato():
+    return render_template("contato.html")
+
+
+@app.route("/logout")
+def clear_session():
+    session.clear()
+    return redirect("/login")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)

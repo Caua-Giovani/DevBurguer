@@ -73,7 +73,9 @@
 }
 
 .banner__title{
-    color:white
+    color:white;
+    font-weight: 800;
+    font-size: 40px;
 }
 
 .banner__title--highlight{
@@ -260,4 +262,17 @@
 
 .products__container{
     padding-bottom: 100px;
+}
+
+.button-logout a{
+    position: absolute;
+    top: 3.5%;
+    right: 6%;
+    padding: 10px 20px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    cursor: pointer;
+    color: grey;
 }

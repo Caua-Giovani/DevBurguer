@@ -35,13 +35,13 @@
             <h2 class="title is-5 mb-5">
                 <i class="fa-solid fa-circle-plus has-text-success mr-2"></i> Entre na sua conta!
             </h2>
-            <form method="post" action="/cadastro/post">
+            <form method="post" action="/login/post">
                 <div class="columns is-multiline">
                     <div class="column is-4">
                         <div class="field">
                             <label class="label is-small">Login</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="Ex: user123" name="login_create">
+                                <input class="input" type="text" placeholder="Ex: user123" name="login" required>
                             </div>
                         </div>
                     </div>
@@ -49,13 +49,18 @@
                         <div class="field">
                             <label class="label is-small">Senha</label>
                             <div class="control">
-                                <input class="input" type="password" placeholder="Ex: senha123" name="senha_create">
+                                <input class="input" type="password" placeholder="Ex: senha123" name="senha" required>
                             </div>
                         </div>
                     </div>
                 <button type="submit" class="button is-link is-fullwidth mt-4">
                     <strong><i class="fa-solid fa-save mr-2"></i> Entrar na conta </strong>
                 </button>
+                {% with messages = get_flashed_messages() %}
+                    {% for message in messages %}
+                    <span style="color:red; display: inline; width: 100%; text-align: center;">{{message}}</span>
+                    {% endfor %}
+                {% endwith %}
                 <a href="/cadastro"><span>Não tem uma conta?? Crie uma clicando aqui!</span></a>
             </form>
         </div>
