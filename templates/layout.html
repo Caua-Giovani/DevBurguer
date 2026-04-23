@@ -55,7 +55,7 @@
 
 
         <button class="header__toggle">
-          <span class="material-symbols-outlined">menu</span>
+          <span onclick="toggleCart()" class="material-symbols-outlined">shopping_cart</span>
         </button>
       </div>
     </header>
@@ -69,5 +69,46 @@
         DevBurger © 2026. Todos os direitos reservados.
       </p>
     </footer>
+
+    <aside class="cart" id="cart">
+
+      <div class="cart__header">
+        <strong style="color: black;">Seu Carrinho</strong>
+        <span onclick="toggleCart()" style="cursor:pointer; color: black;">✖</span>
+      </div>
+
+      <div class="cart__items" id="cart-items">
+        <!-- Itens vão aqui -->
+        <div class="cart__item">
+          <p>🍔 X-Burger</p>
+          <p>R$ 25,00</p>
+        </div>
+
+        <div class="cart__item">
+          <p>🍟 Batata</p>
+          <p>R$ 12,00</p>
+        </div>
+      </div>
+
+      <div class="cart__footer">
+        <div class="cart__total" style="color: black;">
+          <strong style="color: black;" id="cart-total">Total:</strong> R$ 37,00
+        </div>
+
+        <button class="cart__btn">
+          Finalizar Pedido
+        </button>
+      </div>
+
+    </aside>
+
+
+    <script>
+      function toggleCart() {
+          const cart = document.getElementById("cart");
+          cart.classList.toggle("active");
+      }
+    </script>
+    
   </body>
 </html>

@@ -4,7 +4,7 @@ def autenticar_usuario(login:str, senha:str) -> bool:
     try:
         conexao, cursor = conectar()
 
-        cursor.execute(""" SELECT usuario,senha FROM usuarios WHERE usuario = %s AND senha = %s """,(login,senha))
+        cursor.execute(""" SELECT login,senha FROM usuarios WHERE login = %s AND senha = %s """,(login,senha))
 
         resultado = cursor.fetchone()
         conexao.close()
@@ -19,8 +19,7 @@ def adicionar_usuario(login:str,senha:str,nome:str) -> bool:
     try:
         conexao,cursor = conectar()
 
-        cursor.execute("""INSERT INTO usuarios 
-                    VALUES(%s,%s,%s)""",(login,senha,nome))
+        cursor.execute("""INSERT INTO usuarios (login,nome,senha) VALUES(%s,%s,%s)""",(login,nome,senha))
         
         conexao.commit()
         conexao.close()

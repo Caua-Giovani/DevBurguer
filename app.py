@@ -44,7 +44,7 @@ def pag_cadastro():
 def pag_cadastro_post():
     login = request.form.get("login_create")
     senha = request.form.get("senha_create")
-    nome = request.form.get("name_create")
+    nome = request.form.get("nome_create")
     adicionar_usuario(login,senha,nome)
 
     return redirect("/login")

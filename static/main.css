@@ -7,6 +7,23 @@
     padding: 25px;
 }
 
+.container-botoes{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button2{
+    background-color: #27ae60;
+    padding: 6px 15px;
+    color:#2f3554;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px;
+    font-size: 14px;
+    border:transparent;
+    transition: 0.5s ease;
+}
+
 .header__icon{
     padding: 10px 20px;
     background-color: rgb(238, 238, 238);
