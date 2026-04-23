@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/static/main.css" />
     <link rel="stylesheet" href="/static/media.css" />
 
+    
     {% block css_adicional %}
     {% endblock %}
   </head>
@@ -79,15 +80,7 @@
 
       <div class="cart__items" id="cart-items">
         <!-- Itens vão aqui -->
-        <div class="cart__item">
-          <p>🍔 X-Burger</p>
-          <p>R$ 25,00</p>
-        </div>
-
-        <div class="cart__item">
-          <p>🍟 Batata</p>
-          <p>R$ 12,00</p>
-        </div>
+        
       </div>
 
       <div class="cart__footer">
@@ -109,6 +102,7 @@
           cart.classList.toggle("active");
       }
     </script>
+    <script src="static/aside.js"></script>
     
   </body>
 </html>

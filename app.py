@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect,session,flash
+from flask import Flask, jsonify, render_template,request,redirect,session,flash
 import mysql
 import mysql.connector
 
@@ -31,7 +31,11 @@ def pag_cardapio():
         return render_template("index.html",lanches=lanches,destaque=destaque)
     else:
         return redirect("/login")
-
+    
+@app.route("/cardapio2")
+def pag_cardapio2():
+    return jsonify(recuperar_lanches()),200
+    
 @app.route("/login")
 def pag_login():
     return render_template("login.html")
