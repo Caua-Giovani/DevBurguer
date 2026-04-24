@@ -5,6 +5,8 @@ import mysql.connector
 from model.lanches import recuperar_lanches
 from model.lanches import recuperar_lanches_unit
 from model.lanches import recuperar_lanches_destaque
+from model.lanches import recuperar_lanches_carrinho
+from model.lanches import adicionar_lanche_carrinho
 
 from model.usuario import adicionar_usuario
 from model.usuario import autenticar_usuario
@@ -31,10 +33,19 @@ def pag_cardapio():
         return render_template("index.html",lanches=lanches,destaque=destaque)
     else:
         return redirect("/login")
-    
-@app.route("/cardapio2")
-def pag_cardapio2():
-    return jsonify(recuperar_lanches()),200
+
+
+
+@app.route("/carrinho")
+def pag_carrinho():
+    return jsonify(recuperar_lanches_carrinho(session['usuario_logado'])),200
+
+@app.route("/carrinho/post/<int:id>")
+def pag_carrinho_post(id):
+    adicionar_lanche_carrinho(id,session['usuario_logado'])
+    return redirect("/cardapio")
+
+
     
 @app.route("/login")
 def pag_login():

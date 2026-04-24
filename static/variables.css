@@ -8,6 +8,22 @@
 }
 
 /* ASIDE CARRINHO */
+
+.remove_button{
+    border: none;
+    background-color: rgb(255, 83, 83);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.remove_button:hover{
+    background-color: rgb(255, 0, 0);
+    
+}
+
 .cart {
     position: fixed;
     top: 0;

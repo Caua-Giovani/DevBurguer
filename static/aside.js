@@ -1,9 +1,7 @@
 async function mostrar_carrinho(){
-    const resposta = await fetch("cardapio2")
+    const resposta = await fetch("carrinho")
 
-    if (!resposta.ok){
-        alert("ERRO AO CARREGAR O CARRINHO!")
-    }else{
+    if(resposta.ok){
         const dados = await resposta.json()
 
         const preco_total = document.querySelector(".cart__total")
@@ -17,10 +15,12 @@ async function mostrar_carrinho(){
                                     <div class="container_info">
                                         <h1>${item.produto}</h1>
                                         <p>R$ ${item.preco}</p>
+                                        <p>${item.quantidade}X</p>
+                                        <button href="/carrinho/delete/${item.codigo}" class="remove_button">Remover Item</button>
                                     </div>
                                     
                                 </div>`
-            total = total + item.preco
+            total = total + (item.preco*item.quantidade)
             carrinho.innerHTML += linha;
         }
         preco_total.textContent = `Total: R$ ${total}.00`
