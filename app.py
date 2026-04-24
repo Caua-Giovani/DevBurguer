@@ -7,6 +7,7 @@ from model.lanches import recuperar_lanches_unit
 from model.lanches import recuperar_lanches_destaque
 from model.lanches import recuperar_lanches_carrinho
 from model.lanches import adicionar_lanche_carrinho
+from model.lanches import remover_lanche_carrinho
 
 from model.usuario import adicionar_usuario
 from model.usuario import autenticar_usuario
@@ -43,6 +44,11 @@ def pag_carrinho():
 @app.route("/carrinho/post/<int:id>")
 def pag_carrinho_post(id):
     adicionar_lanche_carrinho(id,session['usuario_logado'])
+    return redirect("/cardapio")
+
+@app.route("/carrinho/delete/<int:id>")
+def pag_carrinho_delete(id):
+    remover_lanche_carrinho(id,session['usuario_logado'])
     return redirect("/cardapio")
 
 

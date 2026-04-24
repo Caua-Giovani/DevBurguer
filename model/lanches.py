@@ -68,7 +68,7 @@ def remover_lanche_carrinho(cod, usuario):
     try:
         conexao,cursor = conectar()
 
-        cursor.execute("""INSERT INTO carrinho(lanche,usuario) VALUES(%s,%s)""",(cod,usuario)) 
+        cursor.execute("""DELETE FROM carrinho WHERE lanche = %s AND usuario = %s LIMIT 1;""",(cod,usuario)) 
         
         conexao.commit()
 

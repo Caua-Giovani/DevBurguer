@@ -16,7 +16,7 @@ async function mostrar_carrinho(){
                                         <h1>${item.produto}</h1>
                                         <p>R$ ${item.preco}</p>
                                         <p>${item.quantidade}X</p>
-                                        <button href="/carrinho/delete/${item.codigo}" class="remove_button">Remover Item</button>
+                                        <button> <a href="/carrinho/delete/${item.codigo}" class="remove_button">Remover Item <a></button>
                                     </div>
                                     
                                 </div>`
