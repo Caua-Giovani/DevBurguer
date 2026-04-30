@@ -4,7 +4,7 @@ def autenticar_usuario(login:str, senha:str) -> bool:
     try:
         conexao, cursor = conectar()
 
-        cursor.execute(""" SELECT login,senha FROM usuarios WHERE login = %s AND senha = %s """,(login,senha))
+        cursor.execute(""" SELECT login,nome FROM usuarios WHERE login = %s AND senha = %s """,(login,senha))
 
         resultado = cursor.fetchone()
         conexao.close()
