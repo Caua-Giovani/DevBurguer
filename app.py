@@ -36,10 +36,12 @@ def pag_cardapio():
         return redirect("/login")
 
 
-
 @app.route("/carrinho")
 def pag_carrinho():
-    return jsonify(recuperar_lanches_carrinho(session['usuario_logado'])),200
+    if 'usuario_logado' in session:
+        return jsonify(recuperar_lanches_carrinho(session['usuario_logado'])),200
+    else :
+        return jsonify({"message":"Usuario não logado"}),401
 
 @app.route("/carrinho/post/<int:id>")
 def pag_carrinho_post(id):
@@ -50,7 +52,6 @@ def pag_carrinho_post(id):
 def pag_carrinho_delete(id):
     remover_lanche_carrinho(id,session['usuario_logado'])
     return redirect("/cardapio")
-
 
     
 @app.route("/login")
