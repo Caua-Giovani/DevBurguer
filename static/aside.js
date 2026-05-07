@@ -1,5 +1,5 @@
 async function mostrar_carrinho(){
-    const resposta = await fetch("carrinho")
+    const resposta = await fetch("/carrinho")
 
     if(resposta.ok){
         const dados = await resposta.json()

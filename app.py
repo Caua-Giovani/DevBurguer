@@ -24,7 +24,11 @@ def pag_principal():
 @app.route("/unit/<int:id>")
 def pag_unitario(id):
     lanches = recuperar_lanches_unit(id)
-    return render_template("pagina2.html",lanches=lanches)
+    if 'usuario_logado' in session:
+        return render_template("pagina2.html",lanches=lanches)
+    else:
+        return redirect("/login")
+    
 
 @app.route("/cardapio")
 def pag_cardapio():

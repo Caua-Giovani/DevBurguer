@@ -79,6 +79,7 @@
 .cart__item img{
     width: 150px;
     border-radius: 15px;
+    max-height: 200px;
 }
 
 .cart__footer {

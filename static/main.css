@@ -293,3 +293,12 @@
     cursor: pointer;
     color: grey;
 }
+
+.header__toggle{
+    padding: 6px 7px;
+    background-color: rgb(255, 212, 212);
+    border: 0.5px solid lightcoral;
+    color:red;
+    border-radius: 8px;
+    cursor: pointer;
+}
