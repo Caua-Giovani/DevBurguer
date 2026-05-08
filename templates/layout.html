@@ -98,10 +98,57 @@
 
 
     <script>
+      // Função para abrir/fechar o carrinho
       function toggleCart() {
-          const cart = document.getElementById("cart");
-          cart.classList.toggle("active");
+        const cart = document.getElementById('cart');
+        const overlay = document.querySelector('.cart-overlay');
+        
+        cart.classList.toggle('open');
+        
+        if (!overlay) {
+          const newOverlay = document.createElement('div');
+          newOverlay.className = 'cart-overlay';
+          newOverlay.onclick = toggleCart;
+          document.body.appendChild(newOverlay);
+          setTimeout(() => newOverlay.classList.add('active'), 10);
+        } else {
+          overlay.classList.toggle('active');
+        }
       }
+
+      // Função para atualizar o total
+      function updateTotal() {
+        const items = document.querySelectorAll('.cart__item');
+        let total = 0;
+        
+        items.forEach(item => {
+          const priceText = item.querySelector('.container_info p:first-of-type').innerText;
+          const price = parseFloat(priceText.replace('R$ ', '').replace(',', '.'));
+          const quantityText = item.querySelector('.container_info p:last-of-type').innerText;
+          const quantity = parseInt(quantityText);
+          total += price * quantity;
+        });
+        
+        const totalElement = document.getElementById('cart-total');
+        if (totalElement) {
+          totalElement.nextSibling.textContent = ` R$ ${total.toFixed(2)}`;
+        }
+      }
+
+      // Inicializar quando o DOM carregar
+      document.addEventListener('DOMContentLoaded', () => {
+        updateTotal();
+        
+        // Adicionar evento para fechar ao pressionar ESC
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            const cart = document.getElementById('cart');
+            if (cart.classList.contains('open')) {
+              toggleCart();
+            }
+          }
+        });
+      });
     </script>
     <script src="/static/aside.js"></script>
     
