@@ -51,10 +51,14 @@
           </ul>
         </nav>
 
-
-        <button class="header__toggle">
-          <span onclick="toggleCart()" class="material-symbols-outlined carrinho">shopping_cart</span>
-        </button>
+        <div class="infos">
+          {% if "usuario_logado" in session: %}
+          <p class="nome_usuario">Olá, {{session.get("usuario_logado").get("nome")}}</p>
+          {% endif %}
+          <button class="header__toggle" onclick="toggleCart()" >
+            <span  class="material-symbols-outlined carrinho">shopping_cart</span>
+          </button>
+        </div>
       </div>
     </header>
 

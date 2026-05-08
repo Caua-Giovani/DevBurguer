@@ -9,7 +9,7 @@ def autenticar_usuario(login:str, senha:str) -> bool:
         resultado = cursor.fetchone()
         conexao.close()
         if resultado:
-            return True
+            return resultado
         else:
             return False
     except:

@@ -35,7 +35,7 @@
     right: -400px;
     width: 350px;
     height: 100vh;
-    background: #EFFAF0;
+    background: rgb(219, 219, 219);
     color: white;
     box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     transition: right 0.3s ease;
@@ -65,7 +65,7 @@
 .cart__item {
     margin-bottom: 15px;
     border-bottom: 1px solid #333;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     color: black;
 }
 

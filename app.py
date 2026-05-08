@@ -43,18 +43,18 @@ def pag_cardapio():
 @app.route("/carrinho")
 def pag_carrinho():
     if 'usuario_logado' in session:
-        return jsonify(recuperar_lanches_carrinho(session['usuario_logado'])),200
+        return jsonify(recuperar_lanches_carrinho(session['usuario_logado']["login"])),200
     else :
         return jsonify({"message":"Usuario não logado"}),401
 
 @app.route("/carrinho/post/<int:id>")
 def pag_carrinho_post(id):
-    adicionar_lanche_carrinho(id,session['usuario_logado'])
+    adicionar_lanche_carrinho(id,session['usuario_logado']["login"])
     return redirect("/cardapio")
 
 @app.route("/carrinho/delete/<int:id>")
 def pag_carrinho_delete(id):
-    remover_lanche_carrinho(id,session['usuario_logado'])
+    remover_lanche_carrinho(id,session['usuario_logado']["login"])
     return redirect("/cardapio")
 
     
@@ -81,9 +81,10 @@ def pag_login_post():
 
     login= request.form.get("login")
     senha= request.form.get("senha")
+    usuario = autenticar_usuario(login,senha)
 
-    if autenticar_usuario(login,senha):
-        session['usuario_logado'] = login
+    if usuario:
+        session['usuario_logado'] = usuario
         return redirect("/cardapio")
     else:
         flash("Usuário ou senha incorretos!")
