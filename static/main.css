@@ -322,6 +322,7 @@ footer {
     margin-top: 60px;
     font-weight: 400;
     border-top: 1px solid #ff2d2d30;
+    width: 100vw;
 }
 
 footer .footer-content {
